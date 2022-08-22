@@ -1,0 +1,41 @@
+ackage practical03;// CalculateBMI.java - calculate the BMI and then categorise
+// it based on tabular values
+
+import java.text.DecimalFormat;
+import java.util.Scanner;
+
+public class CalculateBMI {
+
+    public static void main(String[] args) {
+        Scanner scan = new Scanner(System.in);
+        
+        // adding my decimal format
+        DecimalFormat df = new DecimalFormat("##.#");
+
+        String you = " ";
+
+        //Prompt the user to enter their weight in kilograms
+        System.out.println("Enter your weight in kilograms: ");
+        double weight = scan.nextDouble();
+
+        //Prompt the user to enter their height in metres
+        System.out.println("Enter your  in metres: ");
+        double height = scan.nextDouble();
+
+
+        // Calculate BMI
+        double bmi = weight / (height * height);
+
+            if (bmi >= 30){
+            you = "Obese";
+        } else if (bmi <= 29.9 && bmi >= 25) {
+            you = "Overweight";
+        } else if (bmi <= 24.9 && bmi >= 18.5) {
+            you = "Normal";
+        } else if (bmi <= 18.4){
+            you = "Underweight";
+        }
+
+
+        // Display the result
+        System.out.println("Your BMI is " + df.format(bmi) + ", which means you are in the " + you + " range.");
